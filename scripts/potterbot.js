@@ -38,7 +38,7 @@ module.exports = function (robot) {
     } else {
       var response = "Next meeting not 'til next Wednesday."
     }
-    return msg.send(response);
+    return msg.reply(response);
   });
 
   robot.hear(/\bweasley\b/i, function(msg) { 
