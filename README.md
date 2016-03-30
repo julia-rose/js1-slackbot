@@ -12,7 +12,7 @@ Potterbot listens for a few Harry Potter-themed phrases and responds in an accor
 
 - Oy! Potter!
 - wingardium leviosa
-- accio [amazed | badass | boss | clap | contempt | crying | dancing]
+- accio (amazed | badass | boss | clap | contempt | crying | dancing)
     (Summons a gif based on one of these keywords)
 - secret meeting
     (Lets the user know if Dumbledore's Army is meeting tonight)
