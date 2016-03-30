@@ -1,8 +1,3 @@
-// Do at least 3 things:
-  // - send classmate a DM/reply
-  // - use a conditional
-  // - do something random (include image - gif)
-
 var gifs = {
   'amazed': ['hepburn-sunglasses-off.gif', 'tom-hardy-glasses-off.gif'],
   'badass': ['skate-rope.gif', 'split.gif'],
@@ -16,23 +11,6 @@ var gifs = {
 
 module.exports = function (robot) {
 
-  var get_channel, get_username; 
-  
-  // helper functions from Slackbot tutorial - https://github.com/michikono/slackbot-tutorial/blob/master/scripts/slackbot-examples.coffee
-  
-  get_username = function(response) { 
-    return "@" + response.message.user.name; 
-  }; 
-
-  get_channel = function(response) { 
-    if (response.message.room === response.message.user.name) 
-      { 
-        return "@" + response.message.room; 
-      } else { 
-      return "#" + response.message.room; 
-    } 
-  }; 
-
   robot.hear(/Oy! Potter!/i, function(msg) {
     var response = 'Shut it, Malfoy.';
     return msg.send(response);
@@ -43,15 +21,13 @@ module.exports = function (robot) {
     return msg.send(response);
   });
 
-  robot.hear(/Accio ( .*)/i, function(msg) {
-    var input = msg.match[1];
-    var array = gifs.input;
-    var response = 'http://gifs.joelglovier.com/' + input + msg.random(array);
+  robot.hear(/\bAccio\b .*/i, function(msg) {
+    var input = msg.match[0].split(' ');
+    var keyword = input[1];
+    var gifArray = gifs[keyword];
+    var gifName = msg.random(gifArray);
+    var response = 'http://gifs.joelglovier.com/' + keyword + '/' + gifName;
     return msg.send(response);
-  });
-
-  robot.hear(/.*!.*/, function(msg) { 
-    return msg.reply(msg.match[0]); 
   });
 
   robot.hear(/secret meeting/i, function(msg) {
