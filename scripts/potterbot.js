@@ -21,7 +21,7 @@ module.exports = function (robot) {
     return msg.send(response);
   });
 
-  robot.hear(/\bAccio\b .*/i, function(msg) {
+  robot.hear(/\baccio\b .*/i, function(msg) {
     var input = msg.match[0].split(' ');
     var keyword = input[1];
     var gifArray = gifs[keyword];
